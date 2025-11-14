@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
+use Auth;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Spatie\Activitylog\Models\Activity;
+use App\Models\{GeneralSetting};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,12 +28,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-         Activity::saving(function (Activity $activity) {
-            $activity->properties = $activity->properties->put('ip', request()->ip());
-        });
         View::composer('*', function($view){
-            $project_title = 'Airbnb Service';
-            View::share('title', $project_title);  
+            $this->data['generalSettingData'] = GeneralSetting::first();
+            view()->share($this->data);
         });
     }
 }
