@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,15 @@
     <title>Login</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
     <!-- Font Awesome-->
     <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
     <!-- ico-font-->
@@ -34,76 +41,82 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Loader starts-->
     <div class="loader-wrapper">
-      <div class="theme-loader">    
-        <div class="loader-p"></div>
-      </div>
+        <div class="theme-loader">
+            <div class="loader-p"></div>
+        </div>
     </div>
     <!-- Loader ends-->
     <!-- page-wrapper Start-->
-    <section>         
-      <div class="container-fluid p-0">
-        <div class="row">
-          <div class="col-12">
+    <section>
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-12">
 
-              
-            <div class="login-card">
-              <form class="theme-form login-form" method="post" action="{{route('userLogin')}}">
-                  <div style="text-align: center; margin-bottom:10px;">{{-- 
+
+                    <div class="login-card">
+                        <form class="theme-form login-form" method="post" action="{{ route('userLogin') }}">
+                            <div style="text-align: center; margin-bottom:10px;">{{-- 
               <img src="{{asset('assets/images/logo/logo.png')}}" style="height:57px;text-align: center;" alt=""> --}}
-              </div>
-              @if(session('erro_data'))
-                <div class="alert alert-danger">
-                    {{ session('erro_data') }}
+                            </div>
+                            @if (session('erro_data'))
+                                <div class="alert alert-danger">
+                                    {{ session('erro_data') }}
+                                </div>
+                            @endif
+                            @if (session('regi_success'))
+                                <div class="alert alert-success">
+                                    {{ session('regi_success') }}
+                                </div>
+                            @endif
+                            @csrf
+                            <h4>
+                                <center>Login</center>
+                            </h4>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
+                                    <input class="form-control @error('username') is-invalid @enderror" type="text"
+                                        required="" name="username" placeholder="Username">
+                                    @error('username')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
+                                    <input class="form-control  @error('password') is-invalid @enderror" type="password"
+                                        name="password" required="" placeholder="Password">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col"><a href="{{ route('forgotPassword') }}">Forgot
+                                            password?</a></div>
+                                    <div class="col">
+                                        <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-              @endif
-              @if (session('regi_success'))
-                <div class="alert alert-success">
-                  {{ session('regi_success') }}
-                </div>
-              @endif
-                @csrf
-                <h4><center>Login</center></h4>
-                <div class="form-group">
-                  <label>Username</label>
-                  <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
-                    <input class="form-control @error('username') is-invalid @enderror" type="text" required="" name="username" placeholder="Username">
-                    @error('username')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
-                    <input class="form-control  @error('password') is-invalid @enderror" type="password" name="password" required="" placeholder="Password">
-                    @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-primary btn-block" type="submit">Sign in</button>
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col"><a class="link"  href="{{route('forgotPassword')}}">Forgot password?</a></div>
-                  </div>
-                  
-                  
-                </div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
     </section>
     <!-- page-wrapper end-->
     <!-- latest jquery-->
@@ -122,12 +135,13 @@
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script type="text/javascript">
-      $('#kt_login_forgot').on('click', function (e) {
+        $('#kt_login_forgot').on('click', function(e) {
             e.preventDefault();
             _showForm('forgot');
         });
     </script>
     <!-- login js-->
     <!-- Plugin used-->
-  </body>
+</body>
+
 </html>
