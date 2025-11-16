@@ -1,6 +1,6 @@
 @push('scripts')
     <script type="text/javascript">
-        CKEDITOR.replace('page_desc', {
+        var editor = CKEDITOR.replace('description', {
             toolbar: [{
                     name: 'document',
                     items: ['Source']
@@ -23,6 +23,25 @@
                 },
             ]
         });
+
+        editor.on('change', function() {
+            editor.updateElement();
+        });
+
+        $("#image").change(function() {
+            IconImage(this);
+        });
+
+        function IconImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#img_preview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        };
+
         $(document).ready(function() {
             initValidation();
         });

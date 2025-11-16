@@ -56,9 +56,11 @@
                                     </th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                                 <tr>
                                     <th><?php echo e(__('testimonial.title')); ?></th>
+                                    <th><?php echo e(__('testimonial.image')); ?></th>
                                     <th><?php echo e(__('common.status')); ?></th>
                                     <th><?php echo e(__('common.action')); ?></th>
                                 </tr>
@@ -73,6 +75,7 @@
     <?php $__env->startPush('scripts'); ?>
         <script type="text/javascript">
             var title = "<?php echo e(__('testimonial.title')); ?>";
+            var image = "<?php echo e(__('testimonial.image')); ?>";
             var status = "<?php echo e(__('common.status')); ?>";
             var action = "<?php echo e(__('common.action')); ?>";
 
@@ -91,6 +94,13 @@
                             "name": "title",
                             "data": "title",
                             "title": title,
+                            "orderable": true,
+                            "searchable": false
+                        },
+                        {
+                            "name": "image",
+                            "data": "image",
+                            "title": image,
                             "orderable": true,
                             "searchable": false
                         },

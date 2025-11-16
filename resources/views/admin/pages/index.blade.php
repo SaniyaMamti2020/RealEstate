@@ -20,7 +20,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <div class="col-sm-8 datatable-form-filter no-padding">
+                                        <div class="col-sm-12 datatable-form-filter no-padding">
                                             {!! Form::text('filter_page_name', Request::get('filter_page_name', null), ['class' => 'form-control']) !!}
                                         </div>
                                     </th>

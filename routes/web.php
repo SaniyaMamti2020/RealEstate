@@ -52,6 +52,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function (){
     /*category*/
     Route::resource('category', CategoryController::class);
     Route::get('get-category-info/{id}', [CategoryController::class, 'getModelLog'])->name('category.model-log');
+    Route::get('child-category/{id}',[CategoryController::class, 'getChildById'])->name('child-category');
+
 
     /*slider*/
     Route::resource('slider', SliderController::class);
@@ -74,6 +76,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function (){
 
     /*general setting*/
     Route::resource('general-setting', GeneralSettingController::class);
-
-
 });

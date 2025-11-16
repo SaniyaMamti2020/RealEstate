@@ -42,7 +42,14 @@ class CategoryDataTable extends DataTable
                         </div>';
                 }
             })
-            ->rawColumns(['action','status']);
+            ->editColumn('image',function ($row) {
+                if($row['image'] != null ){
+                    return '<img src="/upload/category/'.$row['image'].'" class="img-fluid rounded" style="height: 70px;width: 70px;" >';
+                }else{ 
+                    return '<img src="/media/no-image.png" class="img-fluid rounded" style="height: 70px;width: 70px;" >';
+                }
+            })
+            ->rawColumns(['action', 'status', 'image']);
     }
 
     public function checkrights($row)

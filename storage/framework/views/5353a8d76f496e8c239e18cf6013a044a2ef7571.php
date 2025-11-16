@@ -54,7 +54,7 @@
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav <?php echo e(routeActive('pages.*')); ?>"
                             href="<?php echo e(route('pages.index')); ?>">
-                            <span>Page</span>
+                            <span>Page Management</span>
                         </a>
                     </li>
 

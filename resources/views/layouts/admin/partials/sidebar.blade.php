@@ -54,7 +54,7 @@
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav {{ routeActive('pages.*') }}"
                             href="{{ route('pages.index') }}">
-                            <span>Page</span>
+                            <span>Page Management</span>
                         </a>
                     </li>
 

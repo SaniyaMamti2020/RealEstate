@@ -1,9 +1,9 @@
 <?php
 
     return [
-      'title' => 'Pages',
-      'add_pages' => 'Add Pages',
-      'edit_pages' => 'Edit Pages',
+      'title' => 'Page Management',
+      'add_pages' => 'Add Page Management',
+      'edit_pages' => 'Edit Page Management',
       'page_name' => 'Name',
       'page_img' => 'Image',
       'page_desc' => 'Description',

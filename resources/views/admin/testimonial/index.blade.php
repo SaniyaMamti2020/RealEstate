@@ -56,9 +56,11 @@
                                     </th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                                 <tr>
                                     <th>{{ __('testimonial.title') }}</th>
+                                    <th>{{ __('testimonial.image') }}</th>
                                     <th>{{ __('common.status') }}</th>
                                     <th>{{ __('common.action') }}</th>
                                 </tr>
@@ -73,6 +75,7 @@
     @push('scripts')
         <script type="text/javascript">
             var title = "{{ __('testimonial.title') }}";
+            var image = "{{ __('testimonial.image') }}";
             var status = "{{ __('common.status') }}";
             var action = "{{ __('common.action') }}";
 
@@ -91,6 +94,13 @@
                             "name": "title",
                             "data": "title",
                             "title": title,
+                            "orderable": true,
+                            "searchable": false
+                        },
+                        {
+                            "name": "image",
+                            "data": "image",
+                            "title": image,
                             "orderable": true,
                             "searchable": false
                         },
