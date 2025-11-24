@@ -23,54 +23,68 @@
                         </a>
                     </li>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('category.*') }}"
-                            href="{{ route('category.index') }}">
-                            <span>Category</span>
-                        </a>
-                    </li>
+                    @can('category-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('category.*') }}"
+                                href="{{ route('category.index') }}">
+                                <span>Category</span>
+                            </a>
+                        </li>
+                    @endcan
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('slider.*') }}"
-                            href="{{ route('slider.index') }}">
-                            <span>Slider</span>
-                        </a>
-                    </li>
+                    @can('slider-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('slider.*') }}"
+                                href="{{ route('slider.index') }}">
+                                <span>Slider</span>
+                            </a>
+                        </li>
+                    @endcan
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('testimonial.*') }}"
-                            href="{{ route('testimonial.index') }}">
-                            <span>Testimonial</span>
-                        </a>
-                    </li>
+                    @can('testimonial-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('testimonial.*') }}"
+                                href="{{ route('testimonial.index') }}">
+                                <span>Testimonial</span>
+                            </a>
+                        </li>
+                    @endcan
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('about.*') }}"
-                            href="{{ route('about.index') }}">
-                            <span>About Us</span>
-                        </a>
-                    </li>
+                    @can('about-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('about.*') }}"
+                                href="{{ route('about.index') }}">
+                                <span>About Us</span>
+                            </a>
+                        </li>
+                    @endcan
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('pages.*') }}"
-                            href="{{ route('pages.index') }}">
-                            <span>Page Management</span>
-                        </a>
-                    </li>
+                    @can('pages-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('pages.*') }}"
+                                href="{{ route('pages.index') }}">
+                                <span>Page Management</span>
+                            </a>
+                        </li>
+                    @endcan
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('social-media.*') }}"
-                            href="{{ route('social-media.index') }}">
-                            <span>Social Media</span>
-                        </a>
-                    </li>
+                    @can('social_media-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('social-media.*') }}"
+                                href="{{ route('social-media.index') }}">
+                                <span>Social Media</span>
+                            </a>
+                        </li>
+                    @endcan
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('general-setting.*') }}"
-                            href="{{ route('general-setting.index') }}">
-                            <span>General Setting</span>
-                        </a>
-                    </li>
+                    @can('general_setting-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('general-setting.*') }}"
+                                href="{{ route('general-setting.index') }}">
+                                <span>General Setting</span>
+                            </a>
+                        </li>
+                    @endcan
 
                     @canany(['user-list', 'role-list'])
                         <li class="dropdown {{ Route::is('user.*', 'roles.*') ? 'open' : '' }}">
@@ -95,12 +109,14 @@
                         </li>
                     @endcanany
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('clear') }}"
-                            href="{{ route('clear') }}">
-                            <span>Cache Clear</span>
-                        </a>
-                    </li>
+                    @can('clear_cache-list')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav {{ routeActive('clear') }}"
+                                href="{{ route('clear') }}">
+                                <span>Cache Clear</span>
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

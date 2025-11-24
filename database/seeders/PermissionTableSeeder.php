@@ -1,8 +1,8 @@
 <?php
 namespace Database\Seeders;
   
-use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -42,6 +42,12 @@ class PermissionTableSeeder extends Seeder
            'testimonial-create',
            'testimonial-edit',
            'testimonial-delete',
+
+           'about-list',
+           'social_media-list',
+           'general_setting-list',
+           'clear_cache-list',
+
         ];
      
         foreach ($permissions as $permission) {

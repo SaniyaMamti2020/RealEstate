@@ -12,5 +12,9 @@
        'branch' => 'Branch',
        'mobile_no' => 'Mobile No',
        'access_token' => 'Access Token',
-       'instance_id' => 'Instance ID'
+       'instance_id' => 'Instance ID',
+       'company_logo' => 'Company Logo',
+       'owner_photo' => 'Owner Photo',
+       'phone_no' => 'Phone Number',
+       'address' => 'Address'
     ];

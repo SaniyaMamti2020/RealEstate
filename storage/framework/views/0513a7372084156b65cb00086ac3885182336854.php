@@ -19,13 +19,13 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <div class="col-sm-8 datatable-form-filter no-padding">
+                                        <div class="col-sm-12 datatable-form-filter no-padding">
                                             <?php echo Form::text('filter_username', Request::get('filter_username', null), ['class' => 'form-control']); ?>
 
                                         </div>
                                     </th>
                                     <th>
-                                        <div class="col-sm-8 datatable-form-filter no-padding">
+                                        <div class="col-sm-12 datatable-form-filter no-padding">
                                             <?php echo Form::text('filter_email', Request::get('filter_email', null), ['class' => 'form-control']); ?>
 
                                         </div>

@@ -23,54 +23,68 @@
                         </a>
                     </li>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('category.*')); ?>"
-                            href="<?php echo e(route('category.index')); ?>">
-                            <span>Category</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('category.*')); ?>"
+                                href="<?php echo e(route('category.index')); ?>">
+                                <span>Category</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('slider.*')); ?>"
-                            href="<?php echo e(route('slider.index')); ?>">
-                            <span>Slider</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('slider-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('slider.*')); ?>"
+                                href="<?php echo e(route('slider.index')); ?>">
+                                <span>Slider</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('testimonial.*')); ?>"
-                            href="<?php echo e(route('testimonial.index')); ?>">
-                            <span>Testimonial</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('testimonial-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('testimonial.*')); ?>"
+                                href="<?php echo e(route('testimonial.index')); ?>">
+                                <span>Testimonial</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('about.*')); ?>"
-                            href="<?php echo e(route('about.index')); ?>">
-                            <span>About Us</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('about-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('about.*')); ?>"
+                                href="<?php echo e(route('about.index')); ?>">
+                                <span>About Us</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('pages.*')); ?>"
-                            href="<?php echo e(route('pages.index')); ?>">
-                            <span>Page Management</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('pages-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('pages.*')); ?>"
+                                href="<?php echo e(route('pages.index')); ?>">
+                                <span>Page Management</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('social-media.*')); ?>"
-                            href="<?php echo e(route('social-media.index')); ?>">
-                            <span>Social Media</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('social_media-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('social-media.*')); ?>"
+                                href="<?php echo e(route('social-media.index')); ?>">
+                                <span>Social Media</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('general-setting.*')); ?>"
-                            href="<?php echo e(route('general-setting.index')); ?>">
-                            <span>General Setting</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('general_setting-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('general-setting.*')); ?>"
+                                href="<?php echo e(route('general-setting.index')); ?>">
+                                <span>General Setting</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->any(['user-list', 'role-list'])): ?>
                         <li class="dropdown <?php echo e(Route::is('user.*', 'roles.*') ? 'open' : ''); ?>">
@@ -95,12 +109,14 @@
                         </li>
                     <?php endif; ?>
 
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav <?php echo e(routeActive('clear')); ?>"
-                            href="<?php echo e(route('clear')); ?>">
-                            <span>Cache Clear</span>
-                        </a>
-                    </li>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('clear_cache-list')): ?>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title link-nav <?php echo e(routeActive('clear')); ?>"
+                                href="<?php echo e(route('clear')); ?>">
+                                <span>Cache Clear</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
